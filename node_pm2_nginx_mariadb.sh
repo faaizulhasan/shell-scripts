@@ -1,7 +1,6 @@
 #!/bin/sh
 
 curl -L -o nodesource_setup.sh https://rpm.nodesource.com/setup_12.x
-nano nodesource_setup.sh
 sudo -E bash nodesource_setup.sh
 sudo yum clean all
 sudo yum makecache
