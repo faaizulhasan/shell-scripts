@@ -5,7 +5,7 @@ DOMAIN=$2
 PORT=$3
 
 sudo cat >/etc/nginx/conf.d/$PN.conf <<EOL
-echo server {
+server {
         listen       80;
         listen       [::]:80;
         server_name  $DOMAIN;
