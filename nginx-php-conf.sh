@@ -4,7 +4,7 @@ PN=$1
 DOMAIN=$2
 
 #sudo touch /etc/nginx/conf.d/$PN.conf
-sudo cat  <<EOF > /etc/nginx/conf.d/$PN.conf
+sudo cat >/etc/nginx/conf.d/$PN.conf <<EOL
 #THIS IS AUTOMATED GENERATED FILE DO NOT EDIT!!!!!
 server {
     listen 80;
@@ -30,5 +30,5 @@ server {
         deny all;
     }
 }
-EOF
-
+EOL
+cat /etc/nginx/conf.d/$PN.conf
