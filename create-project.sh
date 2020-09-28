@@ -5,7 +5,8 @@ PROJECT_TYPE=$2
 DOMAIN=$3
 PORT=$4
 DATABASE_NAME=$5
-
+MYSQL_ROOT_USER=root
+MYSQL_ROOT_PASS=
 
 function showHelp(){
 	echo "Arguments: [1]Project name [2]Project Type [3]Domain [4]Port(O) [5]DatabaseName(O)"
@@ -30,6 +31,15 @@ then sh ./nginx-php-conf.sh $PROJECT_NAME $DOMAIN
 else sh ./nginx-node-conf.sh $PROJECT_NAME $DOMAIN $PORT
 fi
 
+#CREATING MYSQL USER FOR THIS PROJECT
+RANDOM_PASSWORD=openssl rand -hex 12
+DB_USERNAME=$PROJECT_NAME-user
+mysql -u $MYSQL_ROOT_USER -p$MYSQL_ROOT_PASS -e "CREATE USER '"$DB_USERNAME"'@'%' IDENTIFIED BY '"$RANDOM_PASSWORD"'; GRANT ALL PRIVILEGES ON "$PROJECT_NAME".* TO '"$DB_USERNAME"'@'%'; FLUSH PRIVILEGES;"
+
+echo "Mysql User: $DB_USERNAME"
+echo "Mysql PasswordL: $RANDOM_PASSWORD"
+
+#checking nginx status
 sudo nginx -t
 
 printf "Do you like to reload nginx (Y/N)"
