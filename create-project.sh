@@ -7,6 +7,11 @@ PORT=$4
 DATABASE_NAME=$5
 
 
+function showHelp(){
+	echo "Arguments: [1]Project name [2]Project Type [3]Domain [4]Port(O) [5]DatabaseName(O)"
+}
+
+
 #VALIDATION
 if ! [ $PROJECT_NAME ]
 then echo "[1]Project Name is required"; showHelp; exit 0
@@ -34,6 +39,3 @@ if [ $res == 'Y' ] | [ $res == 'y' ]
 then sudo systemctl reload nginx
 fi
 
-function showHelp(){
-	echo "Arguments: [1]Project name [2]Project Type [3]Domain [4]Port(O) [5]DatabaseName(O)"
-}
