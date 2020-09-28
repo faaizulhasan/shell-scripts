@@ -4,7 +4,7 @@ PN=$1
 DOMAIN=$2
 PORT=$3
 
-sudo cat >/etc/nginx/conf.d/$PN.conf <<EOL
+sudo cat >/etc/nginx/conf.d/$PN.txt <<EOL
 server {
         listen       80;
         listen       [::]:80;
@@ -24,4 +24,4 @@ server {
        }
 }
 EOL
-cat /etc/nginx/conf.d/$PN.conf
+cat /etc/nginx/conf.d/$PN.txt

@@ -4,7 +4,7 @@ PN=$1
 DOMAIN=$2
 
 #sudo touch /etc/nginx/conf.d/$PN.conf
-sudo cat >/etc/nginx/conf.d/$PN.conf <<EOL
+sudo cat >/etc/nginx/conf.d/$PN.txt <<EOL
 #THIS IS AUTOMATED GENERATED FILE DO NOT EDIT!!!!!
 server {
     listen 80;
@@ -31,4 +31,4 @@ server {
     }
 }
 EOL
-cat /etc/nginx/conf.d/$PN.conf
+cat /etc/nginx/conf.d/$PN.txt
