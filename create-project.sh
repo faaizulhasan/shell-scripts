@@ -38,10 +38,13 @@ fi
 #CREATING MYSQL USER FOR THIS PROJECT
 RANDOM_PASSWORD=$(random-string)
 DB_USERNAME=$PROJECT_NAME-user
-mysql -u $MYSQL_ROOT_USER -p$MYSQL_ROOT_PASS -e "CREATE USER '"$DB_USERNAME"'@'%' IDENTIFIED BY '"$RANDOM_PASSWORD"'; GRANT ALL PRIVILEGES ON "$PROJECT_NAME".* TO '"$DB_USERNAME"'@'%'; FLUSH PRIVILEGES;"
 
+mysql -u $MYSQL_ROOT_USER -p$MYSQL_ROOT_PASS -e  "CREATE DATABASE "$PROJECT_NAME"; CREATE USER '"$DB_USERNAME"'@'%' IDENTIFIED BY '"$RANDOM_PASSWORD"'; GRANT ALL PRIVILEGES ON "$PROJECT_NAME".* TO '"$DB_USERNAME"'@'%'; FLUSH PRIVILEGES;"
+
+echo "================================="
 echo "Mysql User: $DB_USERNAME"
 echo "Mysql PasswordL: $RANDOM_PASSWORD"
+echo "================================="
 
 #checking nginx status
 sudo nginx -t
