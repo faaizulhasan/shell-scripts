@@ -27,7 +27,7 @@ sudo yum install nginx -y
 sudo systemctl start nginx
 sudo systemctl enable nginx
 sudo systemctl status nginx
-printf "====================\n-Disable Selinux\n-Path to disable selinux /etc/selinux/config\n-Insert config.d folder in nginx http block\n-Restart Server\n-mysql_secure_installation\n====================\n"
+printf "====================\n-Disable Selinux\n-Path to disable selinux /etc/selinux/config\n-Insert config.d folder in nginx http block\n-mysql_secure_installation\n-Restart Server\n====================\n"
 
 
 

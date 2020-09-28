@@ -3,13 +3,6 @@
 PN=$1
 DOMAIN=$2
 
-#VALIDATION
-if ![ $PN ]
-then echo "[1]Project Name is required"; exit 0
-else if ![ $DOMAIN ]
-then echo "[2]Domain Name is required"; exit 0
-fi
-
 #sudo touch /etc/nginx/conf.d/$PN.conf
 sudo cat  <<EOF > /etc/nginx/conf.d/$PN.conf
 #THIS IS AUTOMATED GENERATED FILE DO NOT EDIT!!!!!
