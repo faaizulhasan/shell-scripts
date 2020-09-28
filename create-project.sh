@@ -9,13 +9,13 @@ DATABASE_NAME=$5
 
 #VALIDATION
 if ! [ $PROJECT_NAME ]
-then echo "[1]Project Name is required"; exit 0
+then echo "[1]Project Name is required"; showHelp; exit 0
 elif ! [ $PROJECT_TYPE ]
-then echo "[2]Project type (node or php) is required"; exit 0
+then echo "[2]Project type (node or php) is required"; showHelp; exit 0
 elif ! [ $DOMAIN ]
-then echo "[3]Domain Name is required"; exit 0
+then echo "[3]Domain Name is required"; showHelp; exit 0
 elif ! [ $PORT ]
-then echo "[3]Port is required"; exit 0
+then echo "[3]Port is required"; showHelp; exit 0
 fi
 
 
@@ -33,3 +33,7 @@ read res
 if [ $res == 'Y' ] | [ $res == 'y' ]
 then sudo systemctl reload nginx
 fi
+
+function showHelp(){
+	echo "Arguments: [1]Project name [2]Project Type [3]Domain [4]Port(O) [5]DatabaseName(O)"
+}
