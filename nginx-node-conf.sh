@@ -4,18 +4,8 @@ PN=$1
 DOMAIN=$2
 PORT=$3
 
-#VALIDATION
-if ![ $PN ]
-then echo "[1]Project Name is required"; exit 0
-else if ![ $DOMAIN ]
-then echo "[2]Domain Name is required"; exit 0
-else if ![ $PORT ]
-then echo "[3]PORT is required"; exit 0
-fi
-
-#sudo touch /etc/nginx/conf.d/$PN.conf
-sudo cat  <<EOF > /etc/nginx/conf.d/$PN.conf
-server {
+sudo cat >/etc/nginx/conf.d/$PN.conf <<EOL
+echo server {
         listen       80;
         listen       [::]:80;
         server_name  $DOMAIN;
@@ -32,5 +22,6 @@ server {
         proxy_set_header Host $host;
         proxy_cache_bypass $http_upgrade;
        }
-
-EOF
+}
+EOL
+cat /etc/nginx/conf.d/$PN.conf
