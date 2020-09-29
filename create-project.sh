@@ -24,8 +24,6 @@ elif ! [ $PROJECT_TYPE ]
 then echo "[2]Project type (node or php) is required"; showHelp; exit 0
 elif ! [ $DOMAIN ]
 then echo "[3]Domain Name is required"; showHelp; exit 0
-elif ! [ $PORT ]
-then echo "[3]Port is required"; showHelp; exit 0
 fi
 
 
@@ -36,6 +34,11 @@ else sh ./nginx-node-conf.sh $PROJECT_NAME $DOMAIN $PORT
 fi
 
 #CREATING MYSQL USER FOR THIS PROJECT
+echo "Do you want to create database?"
+read db_response
+if [ db_response == 'Y' ] | [ db_response == 'y' ]
+then 
+
 RANDOM_PASSWORD=$(random-string)
 DB_USERNAME=$PROJECT_NAME-user
 
@@ -45,6 +48,7 @@ echo "================================="
 echo "Mysql User: $DB_USERNAME"
 echo "Mysql PasswordL: $RANDOM_PASSWORD"
 echo "================================="
+fi
 
 #checking nginx status
 sudo nginx -t

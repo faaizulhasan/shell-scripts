@@ -16,7 +16,6 @@ pm2 save
 #MARIADB
 sudo yum install mariadb-server -y
 sudo systemctl start mariadb
-sudo systemctl status mariadb
 sudo systemctl enable mariadb
 
 
