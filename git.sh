@@ -15,7 +15,8 @@ fi
 sudo git --bare init /opt/repos/$PN.git --shared=group
 
 #make directory in srv folder
-mkdir /srv/$PN
+sudo mkdir /srv/$PN
+sudo chown -R $USER:$USER /srv/$PN
 
 #post receive file
 sudo touch /opt/repos/$PN.git/hooks/post-receive
