@@ -29,14 +29,14 @@ fi
 
 sh ./git.sh $PROJECT_NAME
 if [ $PROJECT_TYPE == 'php' ]
-then sh ./nginx-php-conf.sh $PROJECT_NAME $DOMAIN 
-else sh ./nginx-node-conf.sh $PROJECT_NAME $DOMAIN $PORT
+then sudo sh ./nginx-php-conf.sh $PROJECT_NAME $DOMAIN 
+else sudo sh ./nginx-node-conf.sh $PROJECT_NAME $DOMAIN $PORT
 fi
 
 #CREATING MYSQL USER FOR THIS PROJECT
 echo "Do you want to create database?"
 read db_response
-if [ db_response == 'Y' ] | [ db_response == 'y' ]
+if [ $db_response == 'Y' ] | [ $db_response == 'y' ]
 then 
 
 RANDOM_PASSWORD=$(random-string)
@@ -48,6 +48,7 @@ echo "================================="
 echo "Mysql User: $DB_USERNAME"
 echo "Mysql PasswordL: $RANDOM_PASSWORD"
 echo "================================="
+
 fi
 
 #checking nginx status
