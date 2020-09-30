@@ -12,4 +12,4 @@ sudo php composer-setup.php
 sudo php -r "unlink('composer-setup.php');"
 sudo mv composer.phar /usr/local/bin/composer
 
-printf "====================\n-Chnage ownership\n-Path /etc/php-fpm.d/www.conf\n-Restart Nginx\n====================\n"
+printf "====================\n-Chnage ownership\n-Path /etc/php-fpm.d/www.conf\n-Restart Nginx & php-fpm\n====================\n"
