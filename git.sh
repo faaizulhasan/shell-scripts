@@ -27,6 +27,12 @@ sudo chown $USER:$USER -R /opt/repos/$PN.git
 sudo chown $USER:$USER -R /srv/$PN/
 sudo chmod -R g+w /srv/$PN
 
+IP=$PRIVATE_IP
+if ! [ $IP ]
+then
+IP="0.0.0.0"
+fi
+
 printf "=========COPY GIT URL=========\n"
-printf "ssh://$USER@0.0.0.0/opt/repos/$PN.git\n"
+printf "ssh://$USER@$IP/opt/repos/$PN.git\n"
 printf "==============================\n"
