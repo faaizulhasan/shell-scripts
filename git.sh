@@ -5,6 +5,7 @@
 
 #Setting up project name
 PN=$1
+PRIVATE_IP="96.43.141.140"
 
 if ! [ $PN ]
 then echo "Enter Project name in argument"; exit 0;
